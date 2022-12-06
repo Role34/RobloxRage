@@ -380,7 +380,7 @@ OldNamecall = hookmetamethod(game,"__namecall",function(Self,...)
         if (Method == "Raycast" and Mode == "Raycast") then
             local HitChance = math.random(0,100) <= Window.Flags["SilentAim/HitChance"]
             local Camera = Workspace.CurrentCamera
-            if Args[1] == Camera.CFrame.Position then
+            if Args[1] == Camera.CFrame.Position and HitChance then
                 Args[2] = SilentAim[3].Position - Camera.CFrame.Position
             end
             return OldNamecall(Self,unpack(Args))
@@ -390,7 +390,7 @@ OldNamecall = hookmetamethod(game,"__namecall",function(Self,...)
         and Mode == "FindPartOnRayWithWhitelist") then
             local HitChance = math.random(0,100) <= Window.Flags["SilentAim/HitChance"]
             local Camera = Workspace.CurrentCamera
-            if Args[1].Origin == Camera.CFrame.Position then
+            if Args[1].Origin == Camera.CFrame.Position and HitChance then
                 Args[1] = Ray.new(Args[1].Origin,SilentAim[3].Position - Camera.CFrame.Position)
             end
             return OldNamecall(Self,unpack(Args))
