@@ -313,9 +313,10 @@ local Window = RobloxRage.Utilities.UI:Window({
     end
 end
 
+Window:SetValue("Background/Offset",74)
 Window:LoadDefaultConfig()
-Window:SetValue("Background/Offset",296)
-Window:SetValue("UI/Toggle",Window.Flags["UI/OOL"])
+Window:SetValue("UI/Toggle",
+Window.Flags["UI/OOL"])
 
 RobloxRage.Utilities.Misc:SetupWatermark(Window)
 RobloxRage.Utilities.Drawing:SetupCursor(Window.Flags)
@@ -608,7 +609,7 @@ local function AutoShoot(Hitbox,Enabled)
     local Weapon,Config = GetEquippedWeapon()
 
     if Weapon and Config then
-        --[[if Config.Controller == "Melee" then
+        if Config.Controller == "Melee" then
             local Camera = Workspace.CurrentCamera
             if (Hitbox[3].Position - Camera.CFrame.Position).Magnitude < 22.5 then
                 local Health = Hitbox[3].Parent.Parent.Health.Value
@@ -626,7 +627,7 @@ local function AutoShoot(Hitbox,Enabled)
                     Tortoiseshell.UI.Events.Hitmarker:Fire(Hitbox[3],RayResult.Position)
                 end
             end return
-        end]]
+        end
         
         local State = Weapon.State
         local Ammo = State.Ammo.Server
