@@ -71,7 +71,7 @@ RobloxRage.Utilities.Drawing = LoadScript("Utilities/Drawing")
 
 local SupportedGame = GetSupportedGame()
 LocalPlayer.OnTeleport:Connect(function(State)
-    if State == Enum.TeleportState.Started then
+    if State == Enum.TeleportState.InProgress then
         QueueOnTeleport(([[local LoadArgs = {%s}
         loadstring(LoadArgs[1] and readfile("RobloxRage/Loader.lua") or
         game:HttpGetAsync("%sLoader.lua"))(unpack(LoadArgs))
