@@ -243,9 +243,10 @@ local Window = RobloxRage.Utilities.UI:Window({
     end
 end
 
+Window:SetValue("Background/Offset",74)
 Window:LoadDefaultConfig()
-Window:SetValue("Background/Offset",296)
-Window:SetValue("UI/Toggle",Window.Flags["UI/OOL"])
+Window:SetValue("UI/Toggle",
+Window.Flags["UI/OOL"])
 
 RobloxRage.Utilities.Misc:SetupWatermark(Window)
 RobloxRage.Utilities.Misc:SetupLighting(Window.Flags)
